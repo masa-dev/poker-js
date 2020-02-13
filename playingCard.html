@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>ポーカー</title>
+    </head>
+    <body>
+        <link rel="stylesheet" type="text/css" href="playingCard.css">
+        <header>
+            <h1>Poker</h1>
+        </header>
+        <div class="content">
+            <div class="someCards" id="opponentsHand">
+                <img class="card" id="opponentsCard_1" src="card/backSide.png">
+                <img class="card" id="opponentsCard_2" src="card/backSide.png">
+                <img class="card" id="opponentsCard_3" src="card/backSide.png">
+                <img class="card" id="opponentsCard_4" src="card/backSide.png">
+                <img class="card" id="opponentsCard_5" src="card/backSide.png">
+            </div>
+            <div class="someCards" id = "deckEtc">
+                <img class="card" id="discard" src="card/backSide.png">
+                <img class="card" id="deck" src="card/deck.png">
+            </div>
+            <div class="someCards" id="myHand">
+                <img class="card" id="myCard_1" src="card/backSide.png">
+                <img class="card" id="myCard_2" src="card/backSide.png">
+                <img class="card" id="myCard_3" src="card/backSide.png">
+                <img class="card" id="myCard_4" src="card/backSide.png">
+                <img class="card" id="myCard_5" src="card/backSide.png">
+            </div>
+            <div class="informationArea">
+                <div class="resultArea">
+                    <p id="opponents_result_1">相手の役は「???」です</p>
+                    <p id="my_result_1">あなたの役は「???」です</p>
+                    <p id="total_result">カードを選択して入れ替えをしてください</p>
+                </div>
+                <div class="executionArea">
+                    <button type="button" id="exe_btn">入れ替え / 実行</button>
+                    <button type="button" id="reset_btn">リセット</button>
+                </div>
+            </div>
+        </div>
+         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="playingCard.js"></script>
+        <!--<script src="test.js"></script>-->
+    </body>
+</html>
