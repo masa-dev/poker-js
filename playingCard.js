@@ -327,6 +327,11 @@ discard = new Cards();
 deck.initDeck();
 deck.shuffle();  //山札をシャッフル
 
+//画像の先読み（プリロード）
+for(let i = 0; i < 20; i++) {
+    $('<img src="card/' + deck.cards[i].linkName + '">');
+}
+
 for(let i = 0; i < 5; i++) { //手札補充
     myHand.drawCard(deck, i);
     opponentsHand.drawCard(deck, i);
