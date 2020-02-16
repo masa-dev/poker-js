@@ -1,5 +1,5 @@
 html{
-    touch-action: manipulation; /*ダブルタップのズームを無効*/
+    touch-action: none; /*ダブルタップのズームを無効*/
 }
 body{
     background-color: #373949;
