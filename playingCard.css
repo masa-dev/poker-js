@@ -286,70 +286,82 @@ button{
 }
 /*横幅が 750px 以下*/
 @media only screen and (max-width: 750px){
-    div.content{
-        width: 500px;
+    body{
+        margin-left: 0px;
+        margin-right: 0px;
     }
+    p{
+        font-size: 13px;
+    }
+    button{
+        font-size: 12px;
+    }
+    div.content{
+        width: 350px;
+    }
+    img.card{
+        width: 74px;
+        height: 111px;
+    }
+
     #opponentsHand{
-        height: 150px;
+        height: 120px;
     }
     #opponentsCard_1{
-        left: -20px
+        left: -30px
     }
     #opponentsCard_2{
-        left: 80px /* 100を足していく */
+        left: 44px /* 74を足していく */
     }
     #opponentsCard_3{
-        left: 180px
+        left: 118px
     }
     #opponentsCard_4{
-        left: 280px
+        left: 192px
     }
     #opponentsCard_5{
-        left: 380px
+        left: 266px
     }
     
     #deckEtc{
-        height: 150px;
+        height: 120px;
     }
     #discard{
-        left: 280px
+        left: 192px
     }
     #deck{
-        left: 378px
+        left: 265px
     }
     
     #myHand{
-        height: 150px;
+        height: 120px;
     }
     #myCard_1{
-        left: -20px
+        left: -30px
     }
     #myCard_2{
-        left: 80px /* 100を足していく */
+        left: 44px /* 74を足していく */
     }
     #myCard_3{
-        left: 180px
+        left: 118px
     }
     #myCard_4{
-        left: 280px
+        left: 192px
     }
     #myCard_5{
-        left: 380px
-    }
-
-    img.card{
-        width: 100px;
-        height: 150px;
+        left: 266px
     }
 
     .informationArea{
+        width: 350px;
         margin: 0px;
     }
     .resultArea{
         margin: 0px;
+        padding: 0px 5px;
     }
     .executionArea{
-        margin-right: 0px;
+        margin: 0px;
+        margin-left: 10px;
     }
-
 }
