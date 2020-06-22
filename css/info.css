@@ -28,5 +28,6 @@
     }
     #button-area {
         width: 100%;
+        text-align: right;
     }
 }
