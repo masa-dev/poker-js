@@ -1,6 +1,7 @@
 // メインコード
 const pokerHand = ['ロイヤルストレートフラッシュ', 'ストレート・フラッシュ', 'フォア・カード', 'フルハウス', 'フラッシュ', 'ストレート', 'スリーカード', 'ツウ・ペア', 'ワン・ペア', 'ノーペア'];
 
+let changeableLimits = 1;
 const cards = new Cards();
 cards.initDeck();
 cards.shuffleDeck();
@@ -10,21 +11,20 @@ myHandVue.updateHand(cards.myHand);
 resultVue.updateResult(pokerHand[cards.pokerJudgement('myHand')[0]], '???', '???');
 
 document.getElementById('change-button').addEventListener('click', function () {
-    if (cards.changeNum >= 1) {
+    if (cards.changeNum >= changeableLimits) {
         alert('交換回数は' + cards.changeNum + '回です\nもう一度遊ぶ際にはリセットのボタンを押してください');
     }
-    else {
+    //交換回数があと1回の場合
+    else if (cards.changeNum + 1 == changeableLimits) {
         let myResult, oppoResult, winner;
-        //相手の交換
+
+        //交換
         cards.npcMovement();
         cards.sortHand('oppoHand');
-        oppoHandVue.updateHand(cards.oppoHand);
-
-        //自分の交換
         cards.replaceCards('myHand', myHandVue.getSelected);
-        myHandVue.updateHand(cards.myHand);
 
-        //捨て札の更新
+        oppoHandVue.updateHand(cards.oppoHand);
+        myHandVue.updateHand(cards.myHand);
         discardVue.updateDiscard(cards.discard);
 
         myResult = pokerHand[cards.pokerJudgement('myHand')[0]];
@@ -32,6 +32,22 @@ document.getElementById('change-button').addEventListener('click', function () {
         winner = cards.judgeTheGame();
 
         resultVue.updateResult(myResult, oppoResult, winner);
+
+        cards.countExe();
+    }
+    //交換回数が2回以上の場合
+    else {
+        //相手の交換
+        cards.npcMovement();
+        cards.sortHand('oppoHand');
+
+        //自分の交換
+        cards.replaceCards('myHand', myHandVue.getSelected);
+
+        myHandVue.updateHand(cards.myHand);
+        discardVue.updateDiscard(cards.discard);
+
+        resultVue.updateResult(pokerHand[cards.pokerJudgement('myHand')[0]], '???', '???');
 
         cards.countExe();
     }
