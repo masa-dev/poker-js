@@ -1,0 +1,32 @@
+#result-area {
+    width: 70%;
+}
+
+#result-area>p {
+    text-align: center;
+    margin: 10px auto;
+}
+
+#info-area {
+    display: flex;
+}
+
+#button-area {
+    width: 30%;
+    text-align: center;
+}
+
+@media screen and (max-width: 450px) {
+    #result-area {
+        width: 100%;
+    }
+    #result-area>p {
+        font-size: 14px;
+    }
+    #info-area {
+        display: block;
+    }
+    #button-area {
+        width: 100%;
+    }
+}

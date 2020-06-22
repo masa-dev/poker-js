@@ -1,47 +1,58 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
-        <title>ポーカー</title>
-    </head>
-    <body>
-        <link rel="stylesheet" type="text/css" href="playingCard.css">
-        <header>
-            <h1>Poker</h1>
-        </header>
-        <div class="content">
-            <div class="someCards" id="opponentsHand">
-                <img class="card" id="opponentsCard_1" src="card/backSide.png">
-                <img class="card" id="opponentsCard_2" src="card/backSide.png">
-                <img class="card" id="opponentsCard_3" src="card/backSide.png">
-                <img class="card" id="opponentsCard_4" src="card/backSide.png">
-                <img class="card" id="opponentsCard_5" src="card/backSide.png">
-            </div>
-            <div class="someCards" id = "deckEtc">
-                <img class="card" id="discard" src="card/backSide.png">
-                <img class="card" id="deck" src="card/deck.png">
-            </div>
-            <div class="someCards" id="myHand">
-                <img class="card" id="myCard_1" src="card/backSide.png">
-                <img class="card" id="myCard_2" src="card/backSide.png">
-                <img class="card" id="myCard_3" src="card/backSide.png">
-                <img class="card" id="myCard_4" src="card/backSide.png">
-                <img class="card" id="myCard_5" src="card/backSide.png">
-            </div>
-            <div class="informationArea">
-                <div class="resultArea">
-                    <p id="opponents_result_1">相手の役は「???」です</p>
-                    <p id="my_result_1">あなたの役は「???」です</p>
-                    <p id="total_result">カードを選択して入れ替えをしてください</p>
-                </div>
-                <div class="executionArea">
-                    <button type="button" id="exe_btn">入れ替え / 実行</button>
-                    <button type="button" id="reset_btn">リセット</button>
-                </div>
-            </div>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ポーカー</title>
+  <link rel="stylesheet" href="css/improved.css">
+  <link rel="stylesheet" href="css/info.css">
+  <link rel="stylesheet" href="css/button.css">
+</head>
+
+<body>
+  <header>
+    <h1>Poker</h1>
+  </header>
+  <main>
+    <div id="bord-area">
+      <div id="opponents-hand" class="cards-area">
+        <div v-for="card in hand" class="card-area">
+          <img :src="'card/' + card.linkName" class="card" v-bind:id="'opponents-card-'+card.id" draggable="false">
         </div>
-         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="playingCard.js"></script>
-    </body>
+      </div>
+      <div id="deck-and-discard" class="cards-area">
+        <div id="discard" class="card-area">
+          <img :src="'card/' + discard.linkName" class="card" draggable="false">
+        </div>
+        <div id="deck" class="card-area">
+          <img src="card/deck.png" class="card" draggable="false">
+        </div>
+      </div>
+      <div id="my-hand" class="cards-area">
+        <div v-for="card in hand" class="card-area">
+          <img :src="'card/' + card.linkName" class="card my-card" v-bind:id="'my-card-'+card.id"
+            v-bind:class="{active: card.isActive}" v-on:click="selectCard(card.id)" draggable="false">
+          <img src="card/transparent.png" class="card transparent" draggable="false">
+        </div>
+      </div>
+    </div>
+    <div id="info-area">
+      <div id="result-area">
+        <p id="my-result" v-html="result.myself"></p>
+        <p id="opponents-result" v-html="result.opponent"></p>
+        <p id="poker-result">{{ result.poker }}</p>
+      </div>
+      <div id="button-area">
+        <button type="button" id="reset-button" class="btn btn-outline-primary">リセット</button>
+        <button type="button" id="change-button" class="btn btn-primary">交換/実行</button>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/vueInstance.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
 </html>
