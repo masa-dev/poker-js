@@ -176,6 +176,7 @@ class Cards {
         if (count == 4) {
             return [1, max];
         }
+        count = 0;
         for (i = 0; i < 5; i++) {   //1,10,J,Q,K の場合
             if (copy[0].suit == copy[i].suit) {
                 if (i == 0 && copy[i].number == 1) {
@@ -268,7 +269,7 @@ class Cards {
 
         //ツウ・ペア，ワンペア
         count = 0;
-        max = null;
+        max = 0;
         for (i = 0; i < 4; i++) {
             if (copy[i].number == copy[i + 1].number) {
                 count++;
