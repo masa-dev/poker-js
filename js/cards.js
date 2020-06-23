@@ -164,7 +164,7 @@ class Cards {
         }
 
         //ストレート・フラッシュ
-        count = 0;
+        count = 0, max = 0;
         for (i = 0; i < 4; i++) {
             if (copy[0].suit == copy[i].suit) {
                 if (copy[i].number + 1 == copy[i + 1].number) {
@@ -176,7 +176,7 @@ class Cards {
         if (count == 4) {
             return [1, max];
         }
-        count = 0;
+        count = 0, max = 0;
         for (i = 0; i < 5; i++) {   //1,10,J,Q,K の場合
             if (copy[0].suit == copy[i].suit) {
                 if (i == 0 && copy[i].number == 1) {
@@ -190,7 +190,7 @@ class Cards {
         }
 
         //フォア・カード
-        count = 0;
+        count = 0, max = 0;
         for (i = 0; i < 2; i++) {
             for (j = 0; j < 3; j++) {    //フルハウスと混同しないように4枚分をずらしながら比べる
                 if (copy[i + j].number == copy[i + j + 1].number) {
@@ -207,7 +207,7 @@ class Cards {
         }
 
         //フルハウス
-        count = 0;
+        count = 0, max = 0;
         for (i = 0; i < 4; i++) {
             if (copy[i].number == copy[i + 1].number) {
                 count++;
@@ -221,7 +221,7 @@ class Cards {
         }
 
         //フラッシュ
-        count = 0;
+        count = 0, max = 0;
         for (i = 1; i < 5; i++) {
             if (copy[0].suit == copy[i].suit) {
                 count++;
@@ -233,7 +233,7 @@ class Cards {
         }
 
         //ストレート
-        count = 0;
+        count = 0, max = 0;
         for (i = 0; i < 4; i++) {
             if (i == 0 && copy[0].number == 1) {
                 if (copy[1].number == 10) {
@@ -251,7 +251,7 @@ class Cards {
         }
 
         //スリーカード
-        count = 0;
+        count = 0, max = 0;
         for (i = 0; i < 3; i++) {
             for (j = 0; j < 2; j++) {
                 if (copy[i + j].number == copy[i + j + 1].number) {
@@ -268,8 +268,7 @@ class Cards {
         }
 
         //ツウ・ペア，ワンペア
-        count = 0;
-        max = 0;
+        count = 0, max = 0;
         for (i = 0; i < 4; i++) {
             if (copy[i].number == copy[i + 1].number) {
                 count++;
